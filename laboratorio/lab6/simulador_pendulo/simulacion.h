@@ -23,6 +23,7 @@ public:
 public slots:
     void start();
     void actualizar();
+    void definirAngulo(double ang);
 
 private:
     Ui::Simulacion *ui;

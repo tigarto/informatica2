@@ -13,9 +13,11 @@ Simulacion::Simulacion(QWidget *parent) :
     pendulus= new Pendulo(250, 0);
 
     pendulus->setTransformOriginPoint(pendulus->getX(),pendulus->getY());
-    pendulus->setRotation(-80);//Se rota.
+    //pendulus->setRotation(30);//Se rota.
     escena->addItem(pendulus);
-
+   // ui->anguloInicial->setDisabled(true);
+    ui->velocidadInicial->setDisabled(true);
+    ui->cuerda->setDisabled(true);
     on=false;
     time= new QTimer;
     movpen= new MovimientoPendulo(-0.785, 0, 1);
@@ -26,7 +28,8 @@ Simulacion::Simulacion(QWidget *parent) :
     connect(time, SIGNAL(timeout()),
             this, SLOT(actualizar()));
 
-
+    connect(ui->anguloInicial,SIGNAL(valueChanged(double)),
+            this,SLOT(definirAngulo(double)));
 }
 
 Simulacion::~Simulacion()
@@ -37,7 +40,7 @@ Simulacion::~Simulacion()
 void Simulacion::start()
 {
     if(on==false){
-        time->start(50);
+        time->start(10);
         qDebug()<<"Empezó!!";
         ui->inicio->setText("Stop");
         on=true;
@@ -52,8 +55,15 @@ void Simulacion::start()
 
 void Simulacion::actualizar()
 {
+    float phi;
     movpen->update(0.005);
     //qDebug()<<movpen->getAcAng();
-    qDebug()<<movpen->getAngulo()*(180/3.1416);
+    phi=movpen->getAngulo()*(180/3.1416);
+    pendulus->setRotation(-90-phi);
 
+}
+
+void Simulacion::definirAngulo(double ang)
+{
+   pendulus->setRotation(-ang);
 }
