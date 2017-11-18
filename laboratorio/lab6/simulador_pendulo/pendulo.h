@@ -20,6 +20,8 @@ public:
                QWidget *widget);
 
 
+    int getX() const;
+    int getY() const;
 };
 
 #endif // PENDULO_H

@@ -1,5 +1,15 @@
 #include "pendulo.h"
 
+int Pendulo::getX() const
+{
+    return x;
+}
+
+int Pendulo::getY() const
+{
+    return y;
+}
+
 Pendulo::Pendulo()
 {
 
