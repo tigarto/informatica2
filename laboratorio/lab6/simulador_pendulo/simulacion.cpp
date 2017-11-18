@@ -13,7 +13,7 @@ Simulacion::Simulacion(QWidget *parent) :
     pendulus= new Pendulo(250, 0);
 
     pendulus->setTransformOriginPoint(pendulus->getX(),pendulus->getY());
-    pendulus->setRotation(-80);
+    pendulus->setRotation(-80);//Se rota.
     escena->addItem(pendulus);
 
     on=false;
