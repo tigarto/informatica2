@@ -19,6 +19,7 @@ QRectF Pendulo::boundingRect() const
 void Pendulo::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     painter->drawLine(x, y, x, y+200);
+    painter->setBrush(Qt::red);
     painter->drawEllipse(x-20, y+200, 40, 40);
 }
 

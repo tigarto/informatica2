@@ -12,7 +12,7 @@ Simulacion::Simulacion(QWidget *parent) :
     ui->vista->setScene(escena);
     pendulus= new Pendulo(250, 0);
 
-    pendulus->setRotation(30);
+    //pendulus->setRotation(30);
     escena->addItem(pendulus);
 
     on=false;
